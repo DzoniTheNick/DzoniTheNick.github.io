@@ -1,0 +1,67 @@
+<div class="list-coins">
+  <div class="table-container" [style.opacity]="loading ? 0: 1">
+    <mat-table [dataSource]="dataSource" matSort class="table">
+      <!-- Rank Column -->
+      <ng-container matColumnDef="rank">
+        <mat-header-cell *matHeaderCellDef mat-sort-header > Rank </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.rank}} </mat-cell>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"><img src="{{row.image}}"> {{row.name}} [{{toUppercase(row.symbol)}}]</mat-cell>
+      </ng-container>
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{roundUpNumberDollar(row.price)}}</mat-cell>
+      </ng-container>
+      <!-- 1h Price Change Column -->
+      <ng-container matColumnDef="p_1h">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> 1h </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="isNegative(row.p_1h) ? 'red' : 'rgb(42, 157, 42)'"> {{roundUpNumberPercent(row.p_1h)}} </mat-cell>
+      </ng-container>
+      <!-- 24h Price Change Column -->
+      <ng-container matColumnDef="p_24h">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> 24h </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="isNegative(row.p_24h) ? 'red' : 'rgb(42, 157, 42)'"> {{roundUpNumberPercent(row.p_24h)}}</mat-cell>
+      </ng-container>greenyellow
+      <!-- 24h Price Change Column -->
+      <ng-container matColumnDef="p_7d">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> 7d </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="isNegative(row.p_7d) ? 'red' : 'rgb(42, 157, 42)'"> {{roundUpNumberPercent(row.p_7d)}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayData; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayData;"></mat-row>
+    </mat-table>
+
+    <div class="selector">
+      <div class="container">
+        <p>Currently showing</p>
+        <select (change)="test(count.value)" #count>
+          <option>5</option>
+          <option>10</option>
+          <option>50</option>
+          <option>100</option>
+          <option>200</option>
+          <option>250</option>
+        </select>
+        <p>results</p>
+      </div>
+    </div>
+
+    <div class="table-navigation">
+      <div class="pagination">
+        <span class="material-icons" id="button" (click)="previous()">navigate_before</span>
+        <p>{{currentPage}}</p>
+        <span class="material-icons" id="button" (click)="next()">navigate_next</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading" [style.opacity]="loading ? 1: 0">
+    <img src="../../../assets/animations/loading.gif" >
+  </div>
+
+</div>

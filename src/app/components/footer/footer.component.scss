@@ -1,0 +1,104 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 5vh;
+  .shadow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95%;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.7) 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    pointer-events: none;
+
+  }
+  .footer-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background:  linear-gradient(360deg, #3748D2 -97.76%, #1E2CA0 133.48%);
+    transition: height 0.3s ease-in-out;
+    .footer-border {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(214, 169, 11, 0.6) 0%, #D6A90B 51.56%, rgba(214, 169, 11, 0.6) 100%);
+    }
+    .footer-text {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        position: absolute;
+        line-height: 19px;
+        letter-spacing: 0.25em;
+        color: #D6A90B;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 29px;
+        letter-spacing: 0.25em;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .hidden-text{
+        position: relative;
+        bottom: -2000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        p{
+          color: #ccac38;
+          margin: 4px;
+          font-size: 20px;
+          text-align: center;
+        }
+        .links {
+          width: 20%;
+          display: flex;
+          justify-content: space-evenly;
+          a {
+            img {
+              width: 40px;
+              margin-top: 10px;
+            }
+            img:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-container:hover {
+    height: 25%;
+    .footer-text{
+      h1 {
+        opacity: 0;
+      }
+      .hidden-text {
+        opacity: 1;
+        bottom: 0;
+      }
+    }
+  }
+  .footer-container:hover + .shadow {
+    height: 75%;
+    opacity: 1;
+    z-index: 200;
+  }
+}

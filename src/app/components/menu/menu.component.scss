@@ -1,0 +1,67 @@
+.menu {
+  width: 100vw;
+  height: 100%;
+  margin-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 300px;
+    }
+    h1 {
+      margin: 0;
+      margin-top: 20px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 85px;
+      line-height: 100px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      text-transform: uppercase;
+      color: #D6A90B;
+    }
+  }
+  .options {
+    width: 55vw;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    .list-coins, .compare-coins, .convert-coins {
+      width: 280px;
+      height: 85px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(360deg, #3748D2 -97.76%, #1E2CA0 133.48%);
+      border: 3px solid #D6A90B;
+      border-radius: 60px;
+    }
+    a {
+      width: 100%;
+      height: 100%;
+      border-radius: 60px;
+      text-decoration: none;
+    }
+    p {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #C59E18;
+    }
+    #button:hover {
+      opacity: .7;
+    }
+  }
+}
